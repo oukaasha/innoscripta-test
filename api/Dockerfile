@@ -46,7 +46,10 @@ COPY . /var/www
 # Copy existing application directory permissions
 COPY --chown=www-data:www-data . /var/www
 
-# Change current user to www
+# Install PHP dependencies using Composer
+RUN composer install --no-dev --optimize-autoloader
+
+# Change current user to www-data
 USER www-data
 
 # Expose port 9000 and start server
