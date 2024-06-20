@@ -1,0 +1,38 @@
+version: '1.0'
+
+services:
+  # Laravel service
+  laravel:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    env_file:
+      - ./api/.env
+    volumes:
+      - ./api:/var/www
+      - ./api/public:/var/www/public
+      - ./api/storage:/var/www/storage
+    ports:
+      - "9000:9000"
+    networks:
+      - app-network
+
+  # React service
+  react:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_app
+    env_file:
+      - ./frontend/.env
+    volumes:
+      - ./frontend:/usr/src/app
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,27 @@
+/* ArticleItem.css */
+
+.article-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  .article-item h3 {
+    margin: 0 0 10px 0;
+  }
+  
+  .article-item p {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .article-item a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+  
+  .article-item a:hover {
+    text-decoration: underline;
+  }
+  
